@@ -1,0 +1,30 @@
+<div class="sigin-page">
+    <form name="loginForm" class="form-signin text-center">
+        <h2 class="form-signin-heading text-center">Login</h2>
+        <div class="form-group" ng-class="{ 'has-error': loginForm.email.$touched && loginForm.email.$invalid }">
+            <label for="email" class="sr-only">Email address</label>
+            <input type="email" name="email" ng-model="email" id="email" class="form-control" placeholder="Email address" required autofocus>
+            <div class="help-block" ng-messages="loginForm.email.$error" ng-if="loginForm.email.$touched">
+                <p ng-message="required">Email required</p>
+                <p ng-message="email">Not a valid email</p>
+            </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': loginForm.password.$touched && loginForm.password.$invalid }">
+            <label for="password" class="sr-only">Password</label>
+            <input type="password" name="password" ng-model="password" id="password" class="form-control" ng-minlength="6" placeholder="Password" required>
+            <div class="help-block" ng-messages="loginForm.password.$error" ng-if="loginForm.password.$touched">
+                <p ng-message="required">Password required</p>
+                <p ng-message="minlength">Password must contain atleast 6 characters</p>
+            </div>
+        </div>
+        <!-- <div class="checkbox">
+                <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+            </div> -->
+        <button ng-disabled="signin.saving || loginForm.$invalid" class="btn btn-lg btn-success btn-block" ng-click="signin.doLogin(email, password)" type="submit">{{signin.saving ? 'Signing In...' : 'Sign In'}}</button>
+        <br>
+        <p class="text-center">Don't have an account? <a ui-sref="signup">Sign Up</a></p>
+    </form>
+
+</div>

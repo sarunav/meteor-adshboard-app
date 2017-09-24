@@ -1,0 +1,23 @@
+{
+    "name": "sample-app",
+    "private": true,
+    "scripts": {
+        "start": "meteor run"
+    },
+    "dependencies": {
+        "angular": "^1.6.5",
+        "angular-meteor": "^1.3.12",
+        "angular-ui-bootstrap": "^2.5.0",
+        "angular-ui-router": "^1.0.3",
+        "angular-utils-pagination": "^0.11.1",
+        "babel-runtime": "^6.23.0",
+        "body-parser": "^1.17.2",
+        "cloudinary": "^1.9.0",
+        "express": "^4.15.3",
+        "helmet": "^3.6.1",
+        "meteor-node-stubs": "~0.2.4",
+        "multer": "^1.3.0",
+        "multer-storage-cloudinary": "^2.2.1",
+        "toastr": "^2.1.2"
+    }
+}

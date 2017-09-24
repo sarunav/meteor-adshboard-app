@@ -1,0 +1,44 @@
+<form name="signupForm" class="form-signin">
+    <h2 class="form-signin-heading text-center">Sign Up</h2>
+
+    <div class="form-group" ng-class="{ 'has-error': signupForm.firstName.$touched && signupForm.firstName.$invalid }">
+        <label for="firstName" class="sr-only">First Name</label>
+        <input ng-model="firstName" name="firstName" type="text" id="firstName" class="form-control" placeholder="First Name" required autofocus>
+        <div class="help-block" ng-messages="signupForm.firstName.$error" ng-if="signupForm.firstName.$touched">
+            <p ng-message="required">First Name required</p>
+        </div>
+    </div>
+    <div class="form-group" ng-class="{ 'has-error': signupForm.lastName.$touched && signupForm.lastName.$invalid }">
+        <label for="lastName" class="sr-only">Last Name</label>
+        <input ng-model="lastName" name="lastName" type="text" id="lastName" class="form-control" placeholder="Last Name" required autofocus>
+        <div class="help-block" ng-messages="signupForm.lastName.$error" ng-if="signupForm.lastName.$touched">
+            <p ng-message="required">Last Name required</p>
+        </div>
+    </div>
+    <div class="form-group" ng-class="{ 'has-error': signupForm.mobile.$touched && signupForm.mobile.$invalid }">
+        <label for="mobile" class="sr-only">Mobile</label>
+        <input ng-model="mobile" type="number" name="mobile" id="mobile" class="form-control" placeholder="Mobile Number" required>
+        <div class="help-block" ng-messages="signupForm.mobile.$error" ng-if="signupForm.mobile.$touched">
+            <p ng-message="required">Mobile Number required</p>
+        </div>
+    </div>
+    <div class="form-group" ng-class="{ 'has-error': signupForm.emailAddr.$touched && signupForm.emailAddr.$invalid }">
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input ng-model="email" name="emailAddr" type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
+        <div class="help-block" ng-messages="signupForm.emailAddr.$error" ng-if="signupForm.emailAddr.$touched">
+            <p ng-message="required">Email required</p>
+            <p ng-message="email">Not a valid email</p>
+        </div>
+    </div>
+    <div class="form-group" ng-class="{ 'has-error': signupForm.password.$touched && signupForm.password.$invalid }">
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input ng-model="password" name="password" type="password" id="inputPassword" class="form-control" ng-minlength="6" placeholder="Password" required>
+        <div class="help-block" ng-messages="signupForm.password.$error" ng-if="signupForm.password.$touched">
+            <p ng-message="required">Password required</p>
+            <p ng-message="minlength">Password must contain atleast 6 characters</p>
+        </div>
+    </div>
+    <button class="btn btn-lg btn-success btn-block" type="submit" ng-click="signup.signup(firstName, lastName, email, mobile, password)" ng-disabled="signup.saving || signupForm.$invalid">{{signup.saving ? 'Signing Up...' : 'Sign Up'}}</button>
+    <br>
+    <p class="text-center">Already have an account? <a ui-sref="signin">Sign In</a></p>
+</form>
